@@ -17,6 +17,12 @@ namespace Travel_agency_project
 
         public async Task<bool> Registration(string username, string password)
         {
+            if (username.Length == 0 && password.Length == 0)
+            {
+                return false;
+            }
+
+
             string url = $"http://localhost:3000/register";
             try
             {

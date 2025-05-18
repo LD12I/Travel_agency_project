@@ -29,16 +29,16 @@ namespace Travel_agency_project
         {
             InitializeComponent();
             tokenSaver = token;
+            HideEverithing();
         }
 
         private async void btnGetProfile_Click(object sender, RoutedEventArgs e)
         {
             string adat = await sc.GetProfileDataAsync(tokenSaver);
 
-            MessageBox.Show("megkezdve");
             if (adat.StartsWith("Hiba"))
             {
-                MessageBox.Show(adat);
+                nameTB.Text = adat.ToString();
                 return;
             }
 
@@ -47,9 +47,9 @@ namespace Travel_agency_project
                 var profil = JsonConvert.DeserializeObject<JsonResponse>(adat);
                 if (profil != null)
                 {
-                    MessageBox.Show(profil.username + " , " + profil.password);
-                    nameTB.Text = profil.username;
-                    passwordTB.Text = profil.password;
+
+                    nameTB.Text = "Profil name: " +  profil.username;
+                    passwordTB.Text = "Profile Password: " + profil.password;
                 }
                 else
                 {
@@ -61,7 +61,23 @@ namespace Travel_agency_project
                 MessageBox.Show("hiba:" + err.Message);
             }
 
+            HideEverithing();
+            ShowProfile();
 
+
+        }
+
+
+        void ShowProfile()
+        {
+            AccountDetailsSP.Visibility = Visibility.Visible;
+
+        }
+
+
+        void HideEverithing()               //contentből mindent hidol
+        {
+            AccountDetailsSP.Visibility = Visibility.Hidden;
         }
     }
 }
