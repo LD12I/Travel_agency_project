@@ -63,6 +63,10 @@ namespace Travel_agency_project
                 StatusText.Text = "Sikertelen Bejelentkezés";
 
             }
+            else if (token == "NTE")
+            {
+                StatusText.Text = "Hiba a bejelentkezés folyamán, ellenőrizze a kapcsolatot, és próbálkozzon újra";
+            }
             else
             {
                 StatusText.Text = "Sikeres Bejelentkezés";

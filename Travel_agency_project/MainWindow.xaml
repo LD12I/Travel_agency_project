@@ -5,33 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travel_agency_project"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="MainWindow" Height="650" Width="500" WindowStartupLocation="CenterScreen" Background="#1A1A1D" ResizeMode="NoResize">
     <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="170"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Felhasználó:" VerticalAlignment="Center"/>
-        <TextBox x:Name="UsernameBox" Grid.Row="0" Grid.Column="1" Margin="5"/>
+        <TextBlock Text="Experience" HorizontalAlignment="Center" Grid.ColumnSpan="2" Foreground="Black" FontSize="31"/>
+        <TextBlock Text="Experience" HorizontalAlignment="Center" Grid.ColumnSpan="2" Foreground="LightCyan" FontSize="30"/>
+        <TextBlock Text="_________________________" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.ColumnSpan="2" Foreground="LightCyan" FontSize="30"/>
+        
+        
+        <TextBlock Text="Kérjük jelentkezzen be, vagy regisztráljon egy új profilt" Grid.ColumnSpan="2" Width="200" TextWrapping="Wrap" TextAlignment="Center" Margin="0,100,0,0" Foreground="LightBlue" Opacity="0.5"/>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Jelszó:" VerticalAlignment="Center"/>
-        <PasswordBox x:Name="PasswordBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
 
-        <Button Content="Regisztráció" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,10,0,0"
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Felhasználó:" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+
+        <TextBox x:Name="UsernameBox" Grid.Row="1" Grid.ColumnSpan="2" Margin="5" Height="20" HorizontalAlignment="Right" Width="250" Foreground="White" Background="#2A2A2D" BorderThickness="0"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Jelszó:" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+        <PasswordBox x:Name="PasswordBox" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="250" Margin="5" Height="20" Foreground="White" Background="#2A2A2D" BorderThickness="0"/>
+
+        <TextBlock x:Name="StatusText" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,10,0,0"
+                   Foreground="LightBlue" TextAlignment="Center" TextWrapping="Wrap"/>
+
+        <Button Content="Regisztráció" Grid.Row="4"  Grid.Column="1" Margin="10,10,10,0" Foreground="White" Background="#2A2A2D"  BorderThickness="0"
                 Click="Button_Click"/>
-        <Button Content="Bejelentkezés" Name="LoginB" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,10,0,0"
+
+
+        <Button Content="Bejelentkezés" Name="LoginB" Grid.Row="4" Grid.Column="0" Margin="10,10,10,0" Foreground="White"  Background="#2A2A2D" BorderThickness="0"
                 Click="LoginB_Click"/>
 
-        <TextBlock x:Name="StatusText" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,10,0,0"
-                   Foreground="DarkRed" TextAlignment="Center"/>
+
         
         
     </Grid>

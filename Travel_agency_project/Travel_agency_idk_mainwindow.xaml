@@ -8,9 +8,13 @@
         Title="Travel_agency_idk_mainwindow" Height="450" Width="800">
     <Grid>
 
-    <Button Name="btnGetProfile" Content="Profil lekérése" Click="btnGetProfile_Click" Width="150" Height="30" />
+        <Grid.RowDefinitions>
+            
+        </Grid.RowDefinitions>
+        
+        <Button Name="btnGetProfile" Background="Black" Content="Profil lekérése" Click="btnGetProfile_Click" Width="150" Height="30" />
 
-        <TextBlock Name="nameTB"/>
-        <TextBlock Name="passwordTB"/>
+        <TextBlock Name="nameTB" Width="100" Height="20"/>
+        <TextBlock Name="passwordTB" Width="100" Height="20"/>
     </Grid>
 </Window>

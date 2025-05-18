@@ -51,7 +51,6 @@ namespace Travel_agency_project
                     try
                     {
                         JsonResponse responseJson = JsonConvert.DeserializeObject<JsonResponse>(responseText);
-                        System.Windows.MessageBox.Show(responseJson.message);
                         return true;
                     }
                     catch (JsonException)
@@ -70,25 +69,33 @@ namespace Travel_agency_project
 
         public async Task<string> LoginAsync(string username, string password)
         {
-            var requestBody = new
+            try
             {
-                loginUsername = username,
-                loginPassword = password
-            };
+                var requestBody = new
+                {
+                    loginUsername = username,
+                    loginPassword = password
+                };
 
-            var json = JsonConvert.SerializeObject(requestBody);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("http://localhost:3000/login", content);
-            var responseBody = await response.Content.ReadAsStringAsync();
+                var response = await client.PostAsync("http://localhost:3000/login", content);
+                var responseBody = await response.Content.ReadAsStringAsync();
 
-            if (!response.IsSuccessStatusCode)
-            {
-                return "Error";
+                if (!response.IsSuccessStatusCode)
+                {
+                    return "Error";
+                }
+
+                var responseData = JsonConvert.DeserializeObject<dynamic>(responseBody);
+                return responseData.token;
             }
-
-            var responseData = JsonConvert.DeserializeObject<dynamic>(responseBody);
-            return responseData.token;
+            catch (Exception)
+            {
+                return "NTE";
+            }
+          
         }
 
 

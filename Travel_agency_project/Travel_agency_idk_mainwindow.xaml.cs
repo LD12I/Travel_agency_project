@@ -35,7 +35,7 @@ namespace Travel_agency_project
         {
             string adat = await sc.GetProfileDataAsync(tokenSaver);
 
-
+            MessageBox.Show("megkezdve");
             if (adat.StartsWith("Hiba"))
             {
                 MessageBox.Show(adat);
